@@ -1,0 +1,48 @@
+{
+  "name": "AracredBot",
+  "version": "0.0.1",
+  "description": "Aracred Bot for quickly onboarding users into aracred through Discord",
+  "keywords": [
+    "discord",
+    "aragon",
+    "aracred",
+    "sourcecred"
+  ],
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "npx eslint ./src",
+    "test": "npx jest",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Aracred",
+  "license": "MIT",
+  "dependencies": {
+    "@sentry/node": "^5.15.4",
+    "crypto-js": "^4.0.0",
+    "discord.js": "^12.1.1",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "jest": "^25.3.0",
+    "lint-staged": "^10.1.3",
+    "nodemon": "^2.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "npx eslint --fix"
+    ]
+  }
+}
